@@ -28,3 +28,6 @@ class Empleo(models.Model):
     class Meta:
         verbose_name= "Empleo"
         verbose_name_plural="Empleos"
+
+    def __str__(self):
+        return self.nombre
