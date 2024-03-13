@@ -10,7 +10,6 @@ class EmpleoSerializers(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         return {
-            "id": instance.id,
             "nombre": instance.nombre,
             "persona_empleo":instance.persona_empleo.nombre,
             "aspiracion":instance.aspiracion,

@@ -15,6 +15,13 @@ class EmpleoListView(generics.ListAPIView):
         model= Empleo.objects.all()
         return  model
 
+class CrearListviews(generics.ListCreateAPIView):
+    queryset = Empleo.objects.filter()
+    serializer_class = EmpleoSerializers
+
+class DetalleViews(generics.RetrieveDestroyAPIView):
+    queryset = Empleo.objects.all()
+    serializer_class = EmpleoSerializers
 
 class lista(viewsets.ViewSet):
     def list(self,request):
