@@ -1,10 +1,19 @@
 from django.shortcuts import render , get_object_or_404
 from rest_framework import  viewsets
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Personal
+from .models import Personal, Empleo
 from .serializers import PersonalSerializers
+from app1.Serializador.serializador_empleo import EmpleoSerializers
 # Create your views here.
+
+
+class EmpleoListView(generics.ListAPIView):
+    serializer_class = EmpleoSerializers
+    def get_queryset(self):
+        model= Empleo.objects.all()
+        return  model
 
 
 class lista(viewsets.ViewSet):

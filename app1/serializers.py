@@ -4,7 +4,7 @@ from .models import  Personal
 class PersonalSerializers(serializers.ModelSerializer):
     class Meta:
         model= Personal
-        fields= "__all__"
+        exclude= ("id",)
 
     def validate_nombre(self,value):
         if "H".lower() not in value:
@@ -15,3 +15,4 @@ class PersonalSerializers(serializers.ModelSerializer):
         if value >18 and value <30:
             raise serializers.ValidationError("Tienes que ser mayor de 18 y menor que 30")
         return value
+
